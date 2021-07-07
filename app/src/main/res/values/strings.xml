@@ -3,6 +3,13 @@
     <string name="kalkulator">Kalkulator</string>
     <string name="informasi_bmr">Informasi BMR</string>
     <string name="bmr_desc">Tubuh memerlukan bahan bakar agar semua organ dapat melakukan fungsi dasarnya dengan baik, seperti bernapas, mencerna makanan, hingga memompa darah ke seluruh tubuh. BMR adalah kebutuhan kalori minimal yang dipakai organ-organ tubuh untuk melakukan tugas dasarnya. Ini meliputi pernapasan, sirkulasi, dan produksi sel. Prosesnya dikenal sebagai metabolisme. Dengan memenuhi BMR, tubuh dapat tumbuh dan berfungsi dengan baik.</string>
-    <string name="example">example</string>
     <string name="bmr">Apa itu BMR?</string>
+    <string name="main_title">Kalkulator Kalori</string>
+    <string name="berat">Berat</string>
+    <string name="kg">KG</string>
+    <string name="tinggi">Tinggi</string>
+    <string name="cm">CM</string>
+    <string name="umur">Umur</string>
+    <string name="pria">Pria</string>
+    <string name="wanita">Wanita</string>
 </resources>

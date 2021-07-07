@@ -2,7 +2,7 @@ package com.example.kalkal;
 
 public class BmrCalc {
     private int berat, tinggi, age; //Berat KG||Tinggi CM
-    private String hasil;
+    private double hasil;
 
     public void setAge(int age) {
         this.age = age;
@@ -17,16 +17,20 @@ public class BmrCalc {
     }
 
     //Rumus
-    public double rumusSatuMan(){//Mifflin-St Jeor Equation
-        return 10*berat+6.25*tinggi-5*age+5;
+    public String rumusSatuMan(){//Mifflin-St Jeor Equation
+        this.hasil = 10*berat+6.25*tinggi-5*age+5;
+        return String.format("%.2f",this.hasil);
     }
-    public double rumusSatuWoman(){//Mifflin-St Jeor Equation
-        return 10*berat+6.25*tinggi-5*age-161;
+    public String rumusSatuWoman(){//Mifflin-St Jeor Equation
+        this.hasil = 10*berat+6.25*tinggi-5*age-161;
+        return String.format("%.2f",this.hasil);
     }
-    public double rumusDuaMan(){//Revised Harris-Benedict Equation
-        return 13.397*berat + 4.799*tinggi - 5.677*age + 88.362;
+    public String rumusDuaMan(){//Revised Harris-Benedict Equation
+        this.hasil = 13.397*berat + 4.799*tinggi - 5.677*age + 88.362;
+        return String.format("%.2f",this.hasil);
     }
-    public double rumusDuaWoman(){//Revised Harris-Benedict Equation
-        return 9.247*berat + 3.098*tinggi - 4.330*age + 447.593;
+    public String rumusDuaWoman(){//Revised Harris-Benedict Equation
+        this.hasil = 9.247*berat + 3.098*tinggi - 4.330*age + 447.593;
+        return String.format("%.2f",this.hasil);
     }
 }
