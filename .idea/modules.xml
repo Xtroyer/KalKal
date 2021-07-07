@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/KalKal.iml" filepath="$PROJECT_DIR$/.idea/KalKal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KalKal.iml" filepath="$PROJECT_DIR$/.idea/modules/KalKal.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KalKal.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KalKal.app.iml" />
     </modules>
   </component>
