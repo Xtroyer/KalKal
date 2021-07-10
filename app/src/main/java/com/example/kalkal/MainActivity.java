@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private BmrCalc bmr = new BmrCalc();
     private Button   mButton;
     private EditText uEdit,bEdit,tEdit;
-    private TextView dummy, dummy2, risiko, saran, kondisi, resultShow, numResult;
+    private TextView risiko, saran, kondisi, resultShow, numResult;
     private RadioGroup gender;
     private RadioButton pilihan;
     private String rKondisi;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private String tKondisi;
     private String tSaran;
     private String tRisiko;
+    private int selected,hasil2;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         bEdit = (EditText)findViewById(R.id.beratText);
         tEdit = (EditText)findViewById(R.id.tinggiText);
         gender = (RadioGroup)findViewById(R.id.radioGroup);
-        dummy = (TextView)findViewById(R.id.dummy);
-        dummy2 = (TextView)findViewById(R.id.dummy2);
         rKondisi=getString(R.string.r_kondisi);
         rSaran=getString(R.string.r_saran);
         rRisiko=getString(R.string.r_risiko);
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     public void infoButton(MenuItem item) {
         setContentView(R.layout.layout_info);
     }
-    public void hasilPopUp(String risiko, String kondisi, String saran, String bmr, String resultNtr){
+    public void hasilPopUp(String risiko, String kondisi, String saran, int bmr, String resultNtr){
         dialogBuilder = new AlertDialog.Builder(this);
         final View hasilPop=getLayoutInflater().inflate(R.layout.result_calc, null);
         this.risiko = (TextView)hasilPop.findViewById(R.id.risikoText);
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         this.saran.setText(saran);
         this.kondisi.setText(kondisi);
         this.resultShow.setText(resultNtr);
-        this.numResult.setText(bmr);
+        this.numResult.setText(String.valueOf(bmr));
 
         dialogBuilder.setView(hasilPop);
         dialog = dialogBuilder.create();
@@ -95,25 +94,20 @@ public class MainActivity extends AppCompatActivity {
         bmr.setAge(Integer.parseInt(uEdit.getText().toString()));
         bmr.setBerat(Integer.parseInt(bEdit.getText().toString()));
         bmr.setTinggi(Integer.parseInt(tEdit.getText().toString()));
-        int selected = gender.getCheckedRadioButtonId();
+        selected = gender.getCheckedRadioButtonId();
         pilihan = (RadioButton) findViewById(selected);
         if (pilihan.getText().equals("Pria")) {
-            dummy.setText(bmr.rumusDuaMan());
+            hasil2=bmr.rumusDuaMan();
         } else {
-            dummy.setText(bmr.rumusDuaWoman());
+            hasil2=bmr.rumusDuaWoman();
         }
-        //Buat teks kondisi, risiko, dan saran
-        double hasil2 = Double.parseDouble(String.valueOf(dummy.getText()));
         if (hasil2 < 1400) {
-            dummy2.setText("Rendah");
-            hasilPopUp(rRisiko,rKondisi,rSaran,String.valueOf(dummy.getText()),"Rendah");
+            hasilPopUp(rRisiko,rKondisi,rSaran,hasil2,"Rendah");
         } else if (hasil2 <1600){
-            dummy2.setText("Normal");
-            hasilPopUp(nRisiko,nKondisi,nSaran, String.valueOf(dummy.getText()),"Normal");
+            hasilPopUp(nRisiko,nKondisi,nSaran, hasil2,"Normal");
         }
         else {
-            dummy2.setText("Tinggi");
-            hasilPopUp(tRisiko,tKondisi,tSaran, String.valueOf(dummy.getText()),"Tinggi");
+            hasilPopUp(tRisiko,tKondisi,tSaran, hasil2,"Tinggi");
         }
     }
 }
