@@ -1,5 +1,6 @@
 package com.example.kalkal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,11 +39,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mButton = (Button)findViewById(R.id.calcButton);
-        uEdit   = (EditText)findViewById(R.id.umurText);
-        bEdit = (EditText)findViewById(R.id.beratText);
-        tEdit = (EditText)findViewById(R.id.tinggiText);
-        gender = (RadioGroup)findViewById(R.id.radioGroup);
+        bangun();
+    }
+
+    public void bangun(){
+        mButton = findViewById(R.id.calcButton);
+        uEdit   = findViewById(R.id.umurText);
+        bEdit = findViewById(R.id.beratText);
+        tEdit = findViewById(R.id.tinggiText);
+        gender = findViewById(R.id.radioGroup);
         rKondisi=getString(R.string.r_kondisi);
         rSaran=getString(R.string.r_saran);
         rRisiko=getString(R.string.r_risiko);
@@ -60,17 +65,25 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_test, menu);
 
-        return super.onCreateOptionsMenu(menu); }
+        return true; }
 
-    //Pilih kalkulator buat ke layout 1
-    public void homeButton(MenuItem item) {
-        setContentView(R.layout.activity_main);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.item1:
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+                return true;
+            case R.id.item2:
+                setContentView(R.layout.layout_info);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
-    //Pilih Informasi BMR buat ke layour 2
-    public void infoButton(MenuItem item) {
-        setContentView(R.layout.layout_info);
-    }
     public void hasilPopUp(String risiko, String kondisi, String saran, int bmr, String resultNtr){
         dialogBuilder = new AlertDialog.Builder(this);
         final View hasilPop=getLayoutInflater().inflate(R.layout.result_calc, null);

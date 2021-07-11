@@ -16,17 +16,6 @@ public class BmrCalc {
         this.tinggi = tinggi;
     }
 
-    //Rumus
-    public int rumusSatuMan(){//Mifflin-St Jeor Equation
-        this.hasil = 10*berat+6.25*tinggi-5*age+5;
-        int hasil = (int)Math.round(this.hasil);
-        return hasil;
-    }
-    public int rumusSatuWoman(){//Mifflin-St Jeor Equation
-        this.hasil = 10*berat+6.25*tinggi-5*age-161;
-        int hasil = (int)Math.round(this.hasil);
-        return hasil;
-    }
     public int rumusDuaMan(){//Revised Harris-Benedict Equation
         this.hasil = 13.397*berat + 4.799*tinggi - 5.677*age + 88.362;
         int hasil = (int)Math.round(this.hasil);
