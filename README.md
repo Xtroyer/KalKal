@@ -1,5 +1,5 @@
 # KalKal
-A calorie calculator. Kalkulator Kalori, KalKal for short. Genius, I know.
+A calorie calculator. Kalkulator Kalori, KalKal for short.
 # BMR
 ## BMR rendah (<1400Kcal)
 - Kondisi : BMR rendah menunjukkan angka BMR yang lebih kecil dari angka normal, biasanya kurang dari 1.500 kkal per hari. BMR rendah berarti Anda menggunakan lebih sedikit energi untuk beraktivitas dibandingkan dengan orang normal. Hal ini dapat menyebabkan nafsu makan Anda berkurang. Dalam artian, saat makan, Anda membutuhkan porsi lebih sedikit dari orang normal untuk menambah berat badan (karena Anda lebih mudah mencapai surplus energi).
