@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -104,23 +105,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hitung(View view) {
-        bmr.setAge(Integer.parseInt(uEdit.getText().toString()));
-        bmr.setBerat(Integer.parseInt(bEdit.getText().toString()));
-        bmr.setTinggi(Integer.parseInt(tEdit.getText().toString()));
-        selected = gender.getCheckedRadioButtonId();
-        pilihan = (RadioButton) findViewById(selected);
-        if (pilihan.getText().equals("Pria")) {
-            hasil2=bmr.rumusDuaMan();
-        } else {
-            hasil2=bmr.rumusDuaWoman();
-        }
-        if (hasil2 < 1400) {
-            hasilPopUp(rRisiko,rKondisi,rSaran,hasil2,"Rendah");
-        } else if (hasil2 <1600){
-            hasilPopUp(nRisiko,nKondisi,nSaran, hasil2,"Normal");
+        if (uEdit.getText().toString().trim().length() == 0 ||
+                tEdit.getText().toString().trim().length() == 0 ||
+                bEdit.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "Harus Di Isi Semuanya Ya \nSalam Senna dan Waldo", Toast.LENGTH_SHORT).show();
         }
         else {
-            hasilPopUp(tRisiko,tKondisi,tSaran, hasil2,"Tinggi");
+            bmr.setAge(Integer.parseInt(uEdit.getText().toString()));
+            bmr.setBerat(Integer.parseInt(bEdit.getText().toString()));
+            bmr.setTinggi(Integer.parseInt(tEdit.getText().toString()));
+            selected = gender.getCheckedRadioButtonId();
+            pilihan = (RadioButton) findViewById(selected);
+            if (pilihan.getText().equals("Pria")) {
+                hasil2 = bmr.rumusDuaMan();
+            } else {
+                hasil2 = bmr.rumusDuaWoman();
+            }
+            if (hasil2 < 1400) {
+                hasilPopUp(rRisiko, rKondisi, rSaran, hasil2, "Rendah");
+            } else if (hasil2 < 1600) {
+                hasilPopUp(nRisiko, nKondisi, nSaran, hasil2, "Normal");
+            } else {
+                hasilPopUp(tRisiko, tKondisi, tSaran, hasil2, "Tinggi");
+            }
         }
     }
 }
