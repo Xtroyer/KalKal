@@ -101,7 +101,7 @@
                 android:layout_marginTop="10dp"
                 android:background="#8BC34A"
                 android:gravity="center"
-                android:text="v 0.1.2b" />
+                android:text="v 0.1.3b" />
 
             <TextView
                 android:id="@+id/textView8"
